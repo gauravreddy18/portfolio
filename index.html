@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brand Digital Hub - Company Portfolio</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --dark: #07111f;
+      --navy: #0d1b2a;
+      --blue: #2563eb;
+      --cyan: #06b6d4;
+      --gold: #d4a017;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --white: #ffffff;
+      --soft: #e8eef7;
+      --border: #dbe3ef;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .book {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    .page {
+      background: var(--white);
+      min-height: 720px;
+      margin-bottom: 32px;
+      padding: 56px;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 45px rgba(7, 17, 31, 0.08);
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    .page.dark {
+      background: linear-gradient(135deg, #07111f 0%, #102542 58%, #123c69 100%);
+      color: var(--white);
+      border: none;
+    }
+
+    .page.dark p,
+    .page.dark li,
+    .page.dark .muted {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .page-number {
+      position: absolute;
+      right: 34px;
+      bottom: 24px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    .page.dark .page-number {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .dark .eyebrow {
+      color: var(--cyan);
+    }
+
+    h1 {
+      font-size: 54px;
+      line-height: 1.06;
+      margin-bottom: 18px;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      font-size: 38px;
+      line-height: 1.12;
+      margin-bottom: 20px;
+      letter-spacing: -0.03em;
+      color: var(--dark);
+    }
+
+    .dark h2,
+    .dark h1,
+    .dark h3 {
+      color: var(--white);
+    }
+
+    h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    p {
+      font-size: 17px;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .lead {
+      font-size: 22px;
+      line-height: 1.45;
+      max-width: 850px;
+      margin-bottom: 24px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .tagline {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .cover-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+      min-height: 600px;
+    }
+
+    .logo-box {
+      width: 90px;
+      height: 90px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 36px;
+      overflow: hidden;
+      background: #000000;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .logo-box:hover {
+      transform: scale(1.05);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .logo-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .contact-item {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.16);
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .mockup-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .mockup {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 24px;
+      min-height: 130px;
+      padding: 22px;
+      backdrop-filter: blur(8px);
+    }
+
+    .mockup strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .four-col {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      border-radius: 14px;
+      margin-bottom: 18px;
+    }
+
+    .placeholder {
+      background: repeating-linear-gradient(
+        45deg,
+        #eef3fb,
+        #eef3fb 10px,
+        #e3ebf7 10px,
+        #e3ebf7 20px
+      );
+      border: 2px dashed #b9c7dc;
+      color: #60708a;
+      border-radius: 22px;
+      min-height: 180px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .logo-placeholder,
+    .logo-item {
+      height: 110px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-weight: 700;
+      text-align: center;
+      padding: 14px;
+      box-shadow: 0 4px 12px rgba(7, 17, 31, 0.02);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .logo-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.12);
+      border-color: rgba(37, 99, 235, 0.3);
+    }
+
+    .logo-item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: grayscale(12%);
+      transition: all 0.3s ease;
+    }
+
+    .logo-item:hover img {
+      filter: grayscale(0%) scale(1.05);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .step {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+      position: relative;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 18px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .bad {
+      border-left: 6px solid #ef4444;
+    }
+
+    .good {
+      border-left: 6px solid #22c55e;
+    }
+
+    .client-template {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+      margin-top: 24px;
+    }
+
+    .label {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .field {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .field strong {
+      color: var(--dark);
+    }
+
+    .sample-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .sample-box {
+      min-height: 155px;
+      border-radius: 20px;
+      background: #f8fafc;
+      border: 2px dashed #b9c7dc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #60708a;
+      font-weight: 700;
+      padding: 14px;
+    }
+
+    .metric-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 26px;
+      overflow: hidden;
+      border-radius: 18px;
+      font-size: 15px;
+    }
+
+    .metric-table th {
+      background: var(--navy);
+      color: white;
+      text-align: left;
+      padding: 16px;
+    }
+
+    .metric-table td {
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      background: #f8fafc;
+    }
+
+    .package {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      min-height: 430px;
+    }
+
+    .package.premium {
+      border: 2px solid var(--blue);
+      box-shadow: 0 15px 35px rgba(37, 99, 235, 0.12);
+    }
+
+    .package-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .testimonial {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      margin-bottom: 18px;
+    }
+
+    .quote {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 18px;
+    }
+
+    .cta-box {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 28px;
+      padding: 34px;
+      margin-top: 32px;
+    }
+
+
+    .about-image-container {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 30px rgba(7, 17, 31, 0.06);
+      transition: all 0.3s ease;
+      background: var(--white);
+      height: 100%;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-image-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px rgba(37, 99, 235, 0.1);
+    }
+
+    .about-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 28px 0;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+      .book {
+        max-width: none;
+        padding: 0;
+      }
+      .page {
+        margin-bottom: 0;
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 100vh;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        padding: 34px;
+      }
+      .cover-grid,
+      .two-col,
+      .client-template,
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+      .three-col,
+      .four-col,
+      .logo-grid,
+      .timeline,
+      .sample-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-strip {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 40px;
+      }
+      h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="book">
+
+    <section class="page dark">
+      <div class="cover-grid">
+        <div>
+          <div class="logo-box">
+            <img src="brand_digital_hub_logo.jpg" alt="Brand Digital Hub Logo">
+          </div>
+          <div class="eyebrow">Company Portfolio</div>
+          <h1>Brand Digital Hub</h1>
+          <div class="tagline">Digital Marketing & Brand Growth Agency</div>
+          <p class="lead">Helping businesses grow through strategy, content, branding, reels, and digital marketing.</p>
+          <p>We create digital presence that looks professional, builds trust, attracts the right audience, and converts attention into enquiries.</p>
+          <div class="contact-strip">
+            <div class="contact-item">Phone: <a href="tel:9030885333" style="color: inherit; text-decoration: none; font-weight: bold;">90308 85333</a></div>
+            <div class="contact-item">Email: <a href="mailto:branddigitalhub@gmail.com" style="color: inherit; text-decoration: none; font-weight: bold;">branddigitalhub@gmail.com</a></div>
+            <div class="contact-item">Instagram: <a href="https://www.instagram.com/branddigitalhub" target="_blank" style="color: inherit; text-decoration: none; font-weight: bold;">@branddigitalhub</a></div>
+          </div>
+        </div>
+        <div class="mockup-stack">
+          <div class="mockup"><strong>Instagram Reels</strong>Strategy, hooks, captions, hashtags, and growth-focused short videos.</div>
+          <div class="mockup"><strong>Brand Creatives</strong>Posters, campaign designs, thumbnails, and premium visual presentation.</div>
+          <div class="mockup"><strong>Marketing Growth</strong>Content planning, client coordination, reviews, and enquiry-focused execution.</div>
+        </div>
+      </div>
+      <div class="page-number">01</div>
+    </section>
+
+    <section class="page">
+      <div class="eyebrow">About Us</div>
+      <h2>We help businesses build a strong and trusted digital presence.</h2>
+      <div class="two-col">
+        <div>
+          <p>Brand Digital Hub is a digital marketing agency focused on helping businesses grow through clear strategy, consistent content, professional branding, and platform-specific marketing.</p>
+          <p>We work with brands that want to improve their online visibility, attract more audience attention, build trust, and generate better enquiries through social media and digital platforms.</p>
+          <p>From content planning to reels strategy, poster design, video editing, YouTube optimization, campaign planning, and client coordination, we support businesses with complete digital marketing execution.</p>
+          <p><strong>Our approach is simple:</strong> Understand the business. Build the right strategy. Create consistent content. Improve brand trust. Generate growth.</p>
+        </div>
+        <div class="about-image-container">
+          <img src="About us section.png" alt="Brand Digital Hub Workspace and Creatives" class="about-image">
+        </div>
+      </div>
+      <div class="page-number">02</div>
+    </section>
+
+    <section class="page">
+      <div class="eyebrow">Brands We Work With</div>
+      <h2>Trusted by growing brands across different industries.</h2>
+      <p class="lead">Brand Digital Hub is proud to support multiple businesses with digital marketing, social media management, content strategy, branding, reels, campaigns, YouTube optimization, and growth-focused marketing execution.</p>
+      <p>Every brand we work with has a different goal. Our responsibility is to understand their business, create the right content direction, and help them build a stronger digital presence.</p>
+      <div class="logo-grid">
+        <div class="logo-item" title="Kriya Jewellers">
+          <img src="Kriya Logo.jpg" alt="Kriya Jewellers">
+        </div>
+        <div class="logo-item" title="Manish 92.5 Silver Jewellery">
+          <img src="Manish.jpeg" alt="Manish 92.5 Silver Jewellery">
+        </div>
+        <div class="logo-item" title="Sakhi - The House of Kanchi Weaves">
+          <img src="Sakhi Logo.jpg" alt="Sakhi - The House of Kanchi Weaves">
+        </div>
+        <div class="logo-item" title="Saradamba Silks">
+          <img src="Saradamba logo.jpg" alt="Saradamba Silks">
+        </div>
+        <div class="logo-item" title="Scrollution">
+          <img src="Scrollution Logo Black BG.png" alt="Scrollution - Learn. Grow. Lead.">
+        </div>
+        <div class="logo-item" title="T Bhakthi">
+          <img src="T Bhakthi Logo.jpeg" alt="T Bhakthi">
+        </div>
+        <div class="logo-item" title="T Studio">
+          <img src="T Studio logoo.png" alt="T Studio - Every voice has a story">
+        </div>
+        <div class="logo-item" title="Thummedha Creations">
+          <img src="Thummedha Logo.jpeg" alt="Thummedha Creations - We explore everything">
+        </div>
+        <div class="logo-item" title="Vasudha - A Unit of Sakhi">
+          <img src="Vasudha.jpg" alt="Vasudha - A Unit of Sakhi">
+        </div>
+        <div class="logo-item" title="Vasudha - Handloom Heritage">
+          <img src="Vasudha.png" alt="Vasudha - Celebration of Handloom Heritage">
+        </div>
+        <div class="logo-item" title="Revio Clicks">
+          <img src="_Revio Clicks Logo Only (1).jpg" alt="Revio Clicks">
+        </div>
+      </div>
+      <p style="margin-top:28px;"><strong>From visibility to trust, from content to enquiries — we help brands grow with consistency and strategy.</strong></p>
+
+      <div class="page-number">03</div>
+    </section>
+
+    <section class="page">
+      <div class="eyebrow">Vision & Mission</div>
+      <h2>Building brands with strategy, creativity, and consistency.</h2>
+      <div class="two-col">
+        <div class="card">
+          <div class="icon"></div>
+          <h3>Our Vision</h3>
+          <p>To help businesses build a strong digital identity and grow through strategic content and marketing.</p>
+        </div>
+        <div class="card">
+          <div class="icon"></div>
+          <h3>Our Mission</h3>
+          <p>To provide creative, practical, and result-oriented digital marketing services for businesses across different industries.</p>
+        </div>
+      </div>
+      <div class="section-divider"></div>
+      <p>At Brand Digital Hub, we believe that every business needs more than random posting. A brand needs a clear message, strong presentation, consistent content, and a marketing system that connects with the right audience.</p>
+      <p>We focus on creating content that improves brand value, builds trust, and supports real business growth.</p>
+
+      <div class="page-number">04</div>
+    </section>
+
+    <section class="page">
+      <div class="eyebrow">Our Services</div>
+      <h2>Complete digital marketing support for business growth.</h2>
+      <p>Brand Digital Hub provides end-to-end digital marketing services designed to improve brand presentation, content consistency, audience engagement, and customer enquiries.</p>
+      <div class="three-col">
+        <div class="card"><h3>Social Media Management</h3><p>We manage business pages with consistent posting, professional presentation, content planning, captions, hashtags, and audience-focused communication.</p></div>
+        <div class="card"><h3>Content Strategy</h3><p>We create monthly content plans based on business goals, audience behaviour, platform trends, and brand positioning.</p></div>
+        <div class="card"><h3>Branding & Positioning</h3><p>We help businesses define how they should look, sound, and communicate online to build trust and recall.</p></div>
+        <div class="card"><h3>Instagram Reels Strategy</h3><p>We plan reels with strong hooks, visual flow, retention points, captions, and CTAs to improve reach and engagement.</p></div>
+        <div class="card"><h3>YouTube Shorts Strategy</h3><p>We create short-form video strategies for YouTube Shorts to increase visibility, subscribers, and content discovery.</p></div>
+        <div class="card"><h3>Facebook Reels & Posts</h3><p>We create Facebook-specific content for local reach, community engagement, business awareness, and enquiries.</p></div>
+        <div class="card"><h3>Poster & Creative Design</h3><p>We design professional posters, festival creatives, offer creatives, event posters, educational posts, and promotional designs.</p></div>
+        <div class="card"><h3>Video Editing Support</h3><p>We support brands with reel edits, podcast clips, promotional videos, event highlights, and short-form video content.</p></div>
+        <div class="card"><h3>Shoot Planning</h3><p>We plan content shoots with concepts, scripts, shot breakdowns, product angles, hooks, and execution guidelines.</p></div>
+        <div class="card"><h3>Podcast Marketing</h3><p>We help podcasts grow through reels, YouTube optimization, episode promotions, guest positioning, thumbnails, and short clips.</p></div>
+        <div class="card"><h3>YouTube SEO</h3><p>We optimize titles, descriptions, tags, thumbnails, playlists, and content structure to improve YouTube discoverability.</p></div>
+        <div class="card"><h3>Paid Ads & Lead Generation</h3><p>We plan and manage ad campaigns focused on visibility, enquiries, leads, and business growth.</p></div>
+        <div class="card"><h3>Campaign Planning</h3><p>We create campaign strategies for launches, events, festivals, offers, awareness drives, and brand promotions.</p></div>
+        <div class="card"><h3>Monthly Growth Review</h3><p>We review content performance, audience response, reach, engagement, and enquiry flow to improve future strategy.</p></div>
+        <div class="card"><h3>Client Coordination</h3><p>We coordinate with clients for approvals, shoot planning, creative direction, campaign updates, and monthly execution.</p></div>
+      </div>
+
+      <div class="page-number">05</div>
+    </section>
+
+    <section class="page">
+      <div class="eyebrow">Industries We Serve</div>
+      <h2>Marketing solutions for different business categories.</h2>
+      <p>Every industry needs a different content style, audience approach, and communication strategy. Brand Digital Hub creates industry-specific marketing plans that match the business type, customer mindset, and platform behaviour.</p>
+      <div class="four-col">
+        <div class="card"><h3>Doctors & Clinics</h3><p>Educational reels, awareness content, doctor branding, patient trust-building, and clinic visibility.</p></div>
+        <div class="card"><h3>Saree Retail Businesses</h3><p>Product showcase reels, offer creatives, festive campaigns, WhatsApp enquiry CTAs, and store visit promotions.</p></div>
+        <div class="card"><h3>Devotional & Temple Events</h3><p>Festival storytelling, event awareness campaigns, devotional captions, posters, and daily promotional content.</p></div>
+        <div class="card"><h3>Education Brands</h3><p>Student-focused content, course promotions, career guidance reels, lead generation, and platform growth.</p></div>
+        <div class="card"><h3>Local Businesses</h3><p>Awareness campaigns, local reach content, offer promotions, customer trust posts, and enquiry-focused marketing.</p></div>
+        <div class="card"><h3>Podcasts</h3><p>Episode promotion, guest branding, YouTube optimization, short clips, thumbnails, and platform distribution.</p></div>
+        <div class="card"><h3>Events</h3><p>Event posters, reels, announcements, highlights, registrations, and audience engagement campaigns.</p></div>
+        <div class="card"><h3>Personal Brands</h3><p>Founder branding, expert positioning, reels, thought-leadership content, and authority-building posts.</p></div>
+      </div>
+
+      <div class="page-number">06</div>
+    </section>
+
+    <section class="page">
+      <div class="eyebrow">Our Working Process</div>
+      <h2>A clear system for consistent digital growth.</h2>
+      <p>We follow a structured process to understand the brand, plan the right content, execute consistently, and improve performance every month.</p>
+      <div class="timeline">
+        <div class="step"><div class="step-number">1</div><h3>Brand Understanding</h3><p>We understand the business, services, target audience, current digital presence, strengths, and growth goals.</p></div>
+        <div class="step"><div class="step-number">2</div><h3>Audience & Competitor Research</h3><p>We study the target audience, competitor pages, industry trends, content gaps, and platform opportunities.</p></div>
+        <div class="step"><div class="step-number">3</div><h3>Monthly Content Strategy</h3><p>We prepare a practical monthly content plan with reel ideas, poster concepts, campaign themes, captions, CTAs, and posting direction.</p></div>
+        <div class="step"><div class="step-number">4</div><h3>Creative Production & Posting</h3><p>We support content creation through shoot planning, design, reel editing, captions, hashtags, scheduling, and publishing.</p></div>
+        <div class="step"><div class="step-number">5</div><h3>Review & Growth Planning</h3><p>We review performance, identify what works, improve weak areas, and plan better content for the next month.</p></div>
+      </div>
+
+      <div class="page-number">07</div>
+    </section>
+
+    <section class="page">
+      <div class="eyebrow">Why Digital Marketing Matters</div>
+      <h2>Your customers are already online. Your brand should be visible there.</h2>
+      <p>Today, customers check a business online before they decide to trust it. They look at social media pages, reviews, posts, videos, branding, and content consistency.</p>
+      <p>A strong digital presence helps a business look active, trustworthy, professional, and approachable.</p>
+      <div class="comparison">
+        <div class="card bad">
+          <h3>Without Strong Digital Marketing</h3>
+          <ul>
+            <li>Weak online presentation</li>
+            <li>Low customer trust</li>
+            <li>Irregular content posting</li>
+            <li>Poor product or service explanation</li>
+            <li>Missed enquiry opportunities</li>
+          </ul>
+        </div>
+        <div class="card good">
+          <h3>With Strong Digital Marketing</h3>
+          <ul>
+            <li>Better brand awareness</li>
+            <li>Professional social media presence</li>
+            <li>Consistent content and campaigns</li>
+            <li>Clear customer communication</li>
+            <li>More enquiry-focused growth</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:24px;"><strong>For any business, digital marketing is no longer optional. It is a daily trust-building system.</strong></p>
+
+      <div class="page-number">08</div>
+    </section>
+
+    <section class="page">
+      <div class="eyebrow">Why Choose Brand Digital Hub</div>
+      <h2>We create content with strategy, not just design.</h2>
+      <p>Brand Digital Hub is built for businesses that want serious digital growth with consistent execution, professional presentation, and practical marketing support.</p>
+      <div class="three-col">
+        <div class="card"><h3>Strategy-First Content</h3><p>Every post, reel, caption, and campaign is planned with a business purpose.</p></div>
+        <div class="card"><h3>Local Business Understanding</h3><p>We understand how local customers think, search, enquire, and make purchase decisions.</p></div>
+        <div class="card"><h3>Industry-Specific Planning</h3><p>We do not use the same content style for every business. We create content based on the industry and target audience.</p></div>
+        <div class="card"><h3>Consistent Posting System</h3><p>We help brands stay active and visible with regular content execution.</p></div>
+        <div class="card"><h3>Reels & Short-Form Expertise</h3><p>We plan short videos with hooks, retention, product or service clarity, and clear CTAs.</p></div>
+        <div class="card"><h3>Captions, Hashtags & SEO</h3><p>We create platform-friendly captions, hashtags, YouTube titles, descriptions, and keywords.</p></div>
+        <div class="card"><h3>Visual Branding Improvement</h3><p>We improve the overall look and feel of the brand across social platforms.</p></div>
+        <div class="card"><h3>Trust-Building Content</h3><p>We create educational, informative, testimonial, showcase, and behind-the-scenes content that builds credibility.</p></div>
+        <div class="card"><h3>Client-Focused Execution</h3><p>We work with clear communication, practical planning, and regular coordination.</p></div>
+      </div>
+
+      <div class="page-number">09</div>
+    </section>
+
+    <section class="page">
+      <div class="eyebrow">Results & Impact</div>
+      <h2>Marketing that improves presentation, consistency, trust, and enquiries.</h2>
+      <p>Our work helps businesses improve how they appear online and how customers respond to them. We focus on creating a stronger digital identity, better content consistency, and more enquiry-focused communication.</p>
+      <div class="three-col">
+        <div class="card"><h3>Increased Brand Visibility</h3><p>More consistent content helps the brand stay active and visible across platforms.</p></div>
+        <div class="card"><h3>Better Social Media Presentation</h3><p>Professional visuals, clean layouts, and strong messaging improve the first impression of the brand.</p></div>
+        <div class="card"><h3>Improved Content Consistency</h3><p>Monthly planning helps the business post regularly without confusion.</p></div>
+        <div class="card"><h3>Better Audience Engagement</h3><p>Audience-focused content improves comments, shares, saves, profile visits, and content interaction.</p></div>
+        <div class="card"><h3>More Enquiry-Focused Communication</h3><p>Clear CTAs, WhatsApp prompts, offer creatives, and service explanations help generate better enquiries.</p></div>
+        <div class="card"><h3>Stronger Brand Trust</h3><p>Educational content, testimonials, behind-the-scenes posts, and professional branding build confidence.</p></div>
+      </div>
+      <div class="page-number">10</div>
+    </section>
+
+
+    <section class="page dark">
+      <div class="eyebrow">Contact Us</div>
+      <h2>Let’s build your brand’s digital presence with strategy, creativity, and consistency.</h2>
+      <p class="lead">Whether you are a doctor, saree business, education brand, local business, podcast, temple event, or personal brand, Brand Digital Hub can help you create a stronger online presence and reach the right audience with the right content.</p>
+      <p>Let’s plan your brand growth together.</p>
+      <div class="two-col">
+        <div class="cta-box">
+          <h3>Brand Digital Hub</h3>
+          <p><strong>Phone:</strong> <a href="tel:9030885333" style="color: inherit; text-decoration: none;">90308 85333</a></p>
+          <p><strong>Email:</strong> <a href="mailto:branddigitalhub@gmail.com" style="color: inherit; text-decoration: none;">branddigitalhub@gmail.com</a></p>
+          <p><strong>Instagram:</strong> <a href="https://www.instagram.com/branddigitalhub" target="_blank" style="color: inherit; text-decoration: none;">@branddigitalhub</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/919030885333" target="_blank" style="color: inherit; text-decoration: none;">90308 85333</a></p>
+        </div>
+        <div class="cta-box">
+          <h3>Contact us today</h3>
+          <p>For digital marketing, branding, content strategy, reels, campaign planning, podcast marketing, and complete brand growth support.</p>
+          <p><strong>Your brand deserves a strong digital presence. Let’s create it.</strong></p>
+          <div class="address-box" style="margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, 0.15);">
+            <h4 style="color: var(--white); font-size: 15px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em;">Our Office Address</h4>
+            <p style="color: rgba(255, 255, 255, 0.8); font-size: 14px; margin-bottom: 0; line-height: 1.5;">
+              Block 109, Srinivasa Avenue, 3rd Floor, Plots 1768/1769, 3rd layout, Pragathi Nagar, Kukatpally, Hyderabad, Telangana 500090
+            </p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:32px;">
+        <p style="margin-bottom:12px;"><strong>Brands We Have Worked With</strong></p>
+        <div class="logo-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px;">
+          <div class="logo-item" title="Scrollution">
+            <img src="Scrollution Logo Black BG.png" alt="Scrollution">
+          </div>
+          <div class="logo-item" title="Sakhi - The House of Kanchi Weaves">
+            <img src="Sakhi Logo.jpg" alt="Sakhi">
+          </div>
+          <div class="logo-item" title="Kriya Jewellers">
+            <img src="Kriya Logo.jpg" alt="Kriya Jewellers">
+          </div>
+          <div class="logo-item" title="T Studio">
+            <img src="T Studio logoo.png" alt="T Studio">
+          </div>
+          <div class="logo-item" title="Revio Clicks">
+            <img src="_Revio Clicks Logo Only (1).jpg" alt="Revio Clicks">
+          </div>
+        </div>
+      </div>
+      <div class="page-number">11</div>
+    </section>
+
+  </main>
+</body>
+</html>
