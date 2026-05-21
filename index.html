@@ -76,6 +76,31 @@
       color: rgba(255, 255, 255, 0.55);
     }
 
+    /* Translucent glassmorphism cards and elements for dark pages */
+    .page.dark .card,
+    .page.dark .step {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(7, 17, 31, 0.25);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .page.dark .card h3,
+    .page.dark .step h3 {
+      color: var(--white);
+    }
+
+    .page.dark .card p,
+    .page.dark .step p {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .page.dark .step-number {
+      background: var(--cyan);
+      color: var(--dark);
+    }
+
     .eyebrow {
       color: var(--blue);
       font-size: 13px;
@@ -670,49 +695,49 @@
       <div class="page-number">02</div>
     </section>
 
-    <section class="page">
+    <section class="page dark">
       <div class="eyebrow">Brands We Work With</div>
       <h2>Trusted by growing brands across different industries.</h2>
       <p class="lead">Brand Digital Hub is proud to support multiple businesses with digital marketing, social media management, content strategy, branding, reels, campaigns, YouTube optimization, and growth-focused marketing execution.</p>
       <p>Every brand we work with has a different goal. Our responsibility is to understand their business, create the right content direction, and help them build a stronger digital presence.</p>
       <div class="logo-grid">
-        <div class="logo-item" title="Sakhi - The House of Kanchi Weaves">
+        <a href="https://www.instagram.com/sakhithehouseofkanchiweaves/" target="_blank" class="logo-item" title="Sakhi - The House of Kanchi Weaves" style="text-decoration: none;">
           <img src="Sakhi Logo.jpg" alt="Sakhi - The House of Kanchi Weaves">
-        </div>
-        <div class="logo-item" title="Vasudha - Handloom Heritage">
+        </a>
+        <a href="https://www.instagram.com/vasudhabridalstudio/" target="_blank" class="logo-item" title="Vasudha - Handloom Heritage" style="text-decoration: none;">
           <img src="Vasudha.png" alt="Vasudha - Celebration of Handloom Heritage">
-        </div>
-        <div class="logo-item" title="Saradamba Silks">
+        </a>
+        <a href="https://www.instagram.com/saradambasilks/" target="_blank" class="logo-item" title="Saradamba Silks" style="text-decoration: none;">
           <img src="Saradamba logo.jpg" alt="Saradamba Silks">
-        </div>
-        <div class="logo-item" title="Chennapatnam">
+        </a>
+        <a href="https://www.instagram.com/chennapatnampattuchiralaangadi/" target="_blank" class="logo-item" title="Chennapatnam" style="text-decoration: none;">
           <img src="Chennapatnam.jpg" alt="Chennapatnam" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-          <span style="display:none; font-size: 16px; font-weight: 700; color: var(--dark);">Chennapatnam</span>
-        </div>
-        <div class="logo-item" title="Revio Clicks">
+          <span style="display:none; font-size: 16px; font-weight: 700; color: var(--white);">Chennapatnam</span>
+        </a>
+        <a href="https://www.instagram.com/revioclicks/" target="_blank" class="logo-item" title="Revio Clicks" style="text-decoration: none;">
           <img src="_Revio Clicks Logo Only (1).jpg" alt="Revio Clicks">
-        </div>
-        <div class="logo-item" title="Scrollution">
+        </a>
+        <a href="https://www.instagram.com/scrollution/" target="_blank" class="logo-item" title="Scrollution" style="text-decoration: none;">
           <img src="Scrollution Logo Black BG.png" alt="Scrollution - Learn. Grow. Lead.">
-        </div>
-        <div class="logo-item" title="Vasudha - A Unit of Sakhi">
+        </a>
+        <a href="https://www.instagram.com/vasudhabridalstudio/" target="_blank" class="logo-item" title="Vasudha - A Unit of Sakhi" style="text-decoration: none;">
           <img src="Vasudha.jpg" alt="Vasudha - A Unit of Sakhi">
-        </div>
-        <div class="logo-item" title="Thummedha Creations">
+        </a>
+        <a href="https://www.instagram.com/thummedhacreations/" target="_blank" class="logo-item" title="Thummedha Creations" style="text-decoration: none;">
           <img src="Thummedha Logo.jpeg" alt="Thummedha Creations - We explore everything">
-        </div>
-        <div class="logo-item" title="T Studio">
+        </a>
+        <a href="https://www.instagram.com/thummedhastudio/" target="_blank" class="logo-item" title="T Studio" style="text-decoration: none;">
           <img src="T Studio logoo.png" alt="T Studio - Every voice has a story">
-        </div>
-        <div class="logo-item" title="T Bhakthi">
+        </a>
+        <a href="https://www.instagram.com/t.bhakthi/" target="_blank" class="logo-item" title="T Bhakthi" style="text-decoration: none;">
           <img src="T Bhakthi Logo.jpeg" alt="T Bhakthi">
-        </div>
-        <div class="logo-item" title="Kriya Jewellers">
+        </a>
+        <a href="https://www.instagram.com/kriyajewellers/" target="_blank" class="logo-item" title="Kriya Jewellers" style="text-decoration: none;">
           <img src="Kriya Logo.jpg" alt="Kriya Jewellers">
-        </div>
-        <div class="logo-item" title="Manish 92.5 Silver Jewellery">
+        </a>
+        <a href="https://www.instagram.com/manish_one_gram_gold_jewellery/" target="_blank" class="logo-item" title="Manish 92.5 Silver Jewellery" style="text-decoration: none;">
           <img src="Manish.jpeg" alt="Manish 92.5 Silver Jewellery">
-        </div>
+        </a>
       </div>
       <p style="margin-top:28px;"><strong>From visibility to trust, from content to enquiries — we help brands grow with consistency and strategy.</strong></p>
 
@@ -741,7 +766,7 @@
       <div class="page-number">04</div>
     </section>
 
-    <section class="page">
+    <section class="page dark">
       <div class="eyebrow">Our Services</div>
       <h2>Complete digital marketing support for business growth.</h2>
       <p>Brand Digital Hub provides end-to-end digital marketing services designed to improve brand presentation, content consistency, audience engagement, and customer enquiries.</p>
@@ -784,7 +809,7 @@
       <div class="page-number">06</div>
     </section>
 
-    <section class="page">
+    <section class="page dark">
       <div class="eyebrow">Our Working Process</div>
       <h2>A clear system for consistent digital growth.</h2>
       <p>We follow a structured process to understand the brand, plan the right content, execute consistently, and improve performance every month.</p>
@@ -831,7 +856,7 @@
       <div class="page-number">08</div>
     </section>
 
-    <section class="page">
+    <section class="page dark">
       <div class="eyebrow">Why Choose Brand Digital Hub</div>
       <h2>We create content with strategy, not just design.</h2>
       <p>Brand Digital Hub is built for businesses that want serious digital growth with consistent execution, professional presentation, and practical marketing support.</p>
@@ -896,80 +921,80 @@
         <div class="marquee-container">
           <div class="marquee-track">
             <!-- First set of 12 brands -->
-            <div class="marquee-item" title="Sakhi - The House of Kanchi Weaves">
+            <a href="https://www.instagram.com/sakhithehouseofkanchiweaves/" target="_blank" class="marquee-item" title="Sakhi - The House of Kanchi Weaves" style="text-decoration: none;">
               <img src="Sakhi Logo.jpg" alt="Sakhi">
-            </div>
-            <div class="marquee-item" title="Vasudha 1 - Handloom Heritage">
+            </a>
+            <a href="https://www.instagram.com/vasudhabridalstudio/" target="_blank" class="marquee-item" title="Vasudha 1 - Handloom Heritage" style="text-decoration: none;">
               <img src="Vasudha.png" alt="Vasudha 1">
-            </div>
-            <div class="marquee-item" title="Saradamba Silks">
+            </a>
+            <a href="https://www.instagram.com/saradambasilks/" target="_blank" class="marquee-item" title="Saradamba Silks" style="text-decoration: none;">
               <img src="Saradamba logo.jpg" alt="Saradamba Silks">
-            </div>
-            <div class="marquee-item" title="Chennapatnam">
+            </a>
+            <a href="https://www.instagram.com/chennapatnampattuchiralaangadi/" target="_blank" class="marquee-item" title="Chennapatnam" style="text-decoration: none;">
               <img src="Chennapatnam.jpg" alt="Chennapatnam">
-            </div>
-            <div class="marquee-item" title="Revio Clicks">
+            </a>
+            <a href="https://www.instagram.com/revioclicks/" target="_blank" class="marquee-item" title="Revio Clicks" style="text-decoration: none;">
               <img src="_Revio Clicks Logo Only (1).jpg" alt="Revio Clicks">
-            </div>
-            <div class="marquee-item" title="Scrollution">
+            </a>
+            <a href="https://www.instagram.com/scrollution/" target="_blank" class="marquee-item" title="Scrollution" style="text-decoration: none;">
               <img src="Scrollution Logo Black BG.png" alt="Scrollution">
-            </div>
-            <div class="marquee-item" title="Vasudha - A Unit of Sakhi">
+            </a>
+            <a href="https://www.instagram.com/vasudhabridalstudio/" target="_blank" class="marquee-item" title="Vasudha - A Unit of Sakhi" style="text-decoration: none;">
               <img src="Vasudha.jpg" alt="Vasudha">
-            </div>
-            <div class="marquee-item" title="Thummedha Creations">
+            </a>
+            <a href="https://www.instagram.com/thummedhacreations/" target="_blank" class="marquee-item" title="Thummedha Creations" style="text-decoration: none;">
               <img src="Thummedha Logo.jpeg" alt="Thummedha Creations">
-            </div>
-            <div class="marquee-item" title="T Studio">
+            </a>
+            <a href="https://www.instagram.com/thummedhastudio/" target="_blank" class="marquee-item" title="T Studio" style="text-decoration: none;">
               <img src="T Studio logoo.png" alt="T Studio">
-            </div>
-            <div class="marquee-item" title="T Bhakthi">
+            </a>
+            <a href="https://www.instagram.com/t.bhakthi/" target="_blank" class="marquee-item" title="T Bhakthi" style="text-decoration: none;">
               <img src="T Bhakthi Logo.jpeg" alt="T Bhakthi">
-            </div>
-            <div class="marquee-item" title="Kriya Jewellers">
+            </a>
+            <a href="https://www.instagram.com/kriyajewellers/" target="_blank" class="marquee-item" title="Kriya Jewellers" style="text-decoration: none;">
               <img src="Kriya Logo.jpg" alt="Kriya Jewellers">
-            </div>
-            <div class="marquee-item" title="Manish 92.5 Silver Jewellery">
+            </a>
+            <a href="https://www.instagram.com/manish_one_gram_gold_jewellery/" target="_blank" class="marquee-item" title="Manish 92.5 Silver Jewellery" style="text-decoration: none;">
               <img src="Manish.jpeg" alt="Manish">
-            </div>
+            </a>
 
             <!-- Second set of 12 brands for infinite scrolling loop -->
-            <div class="marquee-item" title="Sakhi - The House of Kanchi Weaves">
+            <a href="https://www.instagram.com/sakhithehouseofkanchiweaves/" target="_blank" class="marquee-item" title="Sakhi - The House of Kanchi Weaves" style="text-decoration: none;">
               <img src="Sakhi Logo.jpg" alt="Sakhi">
-            </div>
-            <div class="marquee-item" title="Vasudha 1 - Handloom Heritage">
+            </a>
+            <a href="https://www.instagram.com/vasudhabridalstudio/" target="_blank" class="marquee-item" title="Vasudha 1 - Handloom Heritage" style="text-decoration: none;">
               <img src="Vasudha.png" alt="Vasudha 1">
-            </div>
-            <div class="marquee-item" title="Saradamba Silks">
+            </a>
+            <a href="https://www.instagram.com/saradambasilks/" target="_blank" class="marquee-item" title="Saradamba Silks" style="text-decoration: none;">
               <img src="Saradamba logo.jpg" alt="Saradamba Silks">
-            </div>
-            <div class="marquee-item" title="Chennapatnam">
+            </a>
+            <a href="https://www.instagram.com/chennapatnampattuchiralaangadi/" target="_blank" class="marquee-item" title="Chennapatnam" style="text-decoration: none;">
               <img src="Chennapatnam.jpg" alt="Chennapatnam">
-            </div>
-            <div class="marquee-item" title="Revio Clicks">
+            </a>
+            <a href="https://www.instagram.com/revioclicks/" target="_blank" class="marquee-item" title="Revio Clicks" style="text-decoration: none;">
               <img src="_Revio Clicks Logo Only (1).jpg" alt="Revio Clicks">
-            </div>
-            <div class="marquee-item" title="Scrollution">
+            </a>
+            <a href="https://www.instagram.com/scrollution/" target="_blank" class="marquee-item" title="Scrollution" style="text-decoration: none;">
               <img src="Scrollution Logo Black BG.png" alt="Scrollution">
-            </div>
-            <div class="marquee-item" title="Vasudha - A Unit of Sakhi">
+            </a>
+            <a href="https://www.instagram.com/vasudhabridalstudio/" target="_blank" class="marquee-item" title="Vasudha - A Unit of Sakhi" style="text-decoration: none;">
               <img src="Vasudha.jpg" alt="Vasudha">
-            </div>
-            <div class="marquee-item" title="Thummedha Creations">
+            </a>
+            <a href="https://www.instagram.com/thummedhacreations/" target="_blank" class="marquee-item" title="Thummedha Creations" style="text-decoration: none;">
               <img src="Thummedha Logo.jpeg" alt="Thummedha Creations">
-            </div>
-            <div class="marquee-item" title="T Studio">
+            </a>
+            <a href="https://www.instagram.com/thummedhastudio/" target="_blank" class="marquee-item" title="T Studio" style="text-decoration: none;">
               <img src="T Studio logoo.png" alt="T Studio">
-            </div>
-            <div class="marquee-item" title="T Bhakthi">
+            </a>
+            <a href="https://www.instagram.com/t.bhakthi/" target="_blank" class="marquee-item" title="T Bhakthi" style="text-decoration: none;">
               <img src="T Bhakthi Logo.jpeg" alt="T Bhakthi">
-            </div>
-            <div class="marquee-item" title="Kriya Jewellers">
+            </a>
+            <a href="https://www.instagram.com/kriyajewellers/" target="_blank" class="marquee-item" title="Kriya Jewellers" style="text-decoration: none;">
               <img src="Kriya Logo.jpg" alt="Kriya Jewellers">
-            </div>
-            <div class="marquee-item" title="Manish 92.5 Silver Jewellery">
+            </a>
+            <a href="https://www.instagram.com/manish_one_gram_gold_jewellery/" target="_blank" class="marquee-item" title="Manish 92.5 Silver Jewellery" style="text-decoration: none;">
               <img src="Manish.jpeg" alt="Manish">
-            </div>
+            </a>
           </div>
         </div>
       </div>
